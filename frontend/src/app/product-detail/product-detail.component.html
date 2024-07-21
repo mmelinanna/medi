@@ -1,0 +1,61 @@
+<div *ngIf="product" class="product-details">
+  <ng-container *ngIf="isLoading; else productContent">
+    <div class="loading-indicator">Lädt...</div>
+  </ng-container>
+  <ng-template #productContent>
+    <h2>{{product.Name}}</h2>
+    <div class="product-info">
+    <div class="colomn1">
+
+      <div class="image-container">
+      <app-product-card [product]="product"></app-product-card>
+      </div>
+      <br>
+      <br>
+      <label>Eigenanteil: 4,60€</label>
+      <label>Länge: {{product.Art}}</label>
+      <label>Kompressionsklasse: {{product.Kompressionsklasse}}</label>
+      <label>Farbe:
+        <select [(ngModel)]="product.Farbe">
+          <option
+            *ngFor="let color of ['Weiß', 'Beige', 'Caramel', 'Cashmere', 'Anthrazit', 'Marine', 'Schwarz', 'Grau', 'medi Magenta', 'Sand', 'Kastanie', 'Himbeerrot', 'Salbeigrün', 'Flieder']"
+            [value]="color">{{color}}</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="column2">
+
+      <div class="Productinformation">
+        <div>{{product.Produktinformation}}</div>
+      </div>
+      <br>
+      <br>
+
+      <label>Pflegeschaum
+        <input type="checkbox" />
+      </label>
+      <label>Anziehhilfe
+        <input type="checkbox" />
+      </label>
+      <br>
+      <br>
+      <label>Modifikation
+        <select>
+          <option *ngFor="let modification of ['Keine', 'Modifikation 1', 'Modifikation 2']" [value]="modification">
+            {{modification}}</option>
+        </select>
+      </label>
+    </div>
+
+</div>
+
+<div class="product-actions">
+  <button class="fixed-button right" (click)="selectProduct()">Produkt auswählen</button>
+  <button class="fixed-button left" (click)="goBack()">Zurück</button>
+</div>
+
+
+
+</ng-template>
+</div>

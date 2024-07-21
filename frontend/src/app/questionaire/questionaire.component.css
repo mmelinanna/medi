@@ -1,0 +1,63 @@
+
+.prescription-capture {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+ /*++++++++++++++++++++++ Blutdruck +++++++++++++++++++++++++++++++++++++++ */
+  .blood-pressure div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+   
+  .blood-pressure label {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .blood-pressure input {
+    flex: 2;
+  }
+ /*++++++++++++++++++++++ Kommentarfeld +++++++++++++++++++++++++++++++++++++++ */
+  .comment-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .comment-section textarea {
+    flex: 2;
+  }
+  
+  .edit-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    color: #ff1493; /* Hotpink */
+  }
+
+
+  
+   /*++++++++++++++++++++++ Stepper +++++++++++++++++++++++++++++++++++++++ */
+  .step-indicator {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .step-indicator span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #ccc;
+    color: #fff;
+    border-radius: 50%;
+    margin: 0 5px;
+  }
+  
+  .step-indicator .active {
+    background-color: #ff1493; /* Hotpink */
+  }
+  

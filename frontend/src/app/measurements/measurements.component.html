@@ -1,0 +1,60 @@
+
+  
+  <div class="overall-layout">
+    <!-- Step 1: Choice of measurement entry -->
+    <div *ngIf="currentStep === 1">
+        <h2>Messdaten</h2>
+        <div class="center-container">
+            
+            <div class="measurement-option">
+              <p>Messtool-Import</p>
+              <img src="assets/Upload.png" alt="Import Icon">
+              
+            </div>
+            <div class="measurement-option" (click)="nextPage()">
+              <p>Manuell eintragen</p>
+              <img src="assets/Measure.png" alt="Manual Entry Icon">
+              
+            </div>
+          </div>
+          <div class="button-container">
+            <button class="fixed-button left" type="button" (click)="previousPage()">Zurück</button>
+            <button class="fixed-button right" routerLink="/questionaire/1">Ohne Maße</button>
+        </div>
+        </div>
+    
+
+    <!-- Step 2: Manual measurement -->
+    <div *ngIf="currentStep === 2">
+        <h2>Maße</h2>
+
+        <div class="container">
+            <div class="column left-column">
+                <div class="button-column">
+                    <button>Links</button>
+                    <button>Rechts</button>
+                    <button>Bein</button>
+                    <button>Arm</button>
+                </div>
+                <div class="input-fields">
+                    <input type="text" placeholder="cE">
+                    <input type="text" placeholder="cD">
+                    <input type="text" placeholder="cC">
+                    <input type="text" placeholder="cB1">
+                </div>
+            </div>
+            <div class="column right-column">
+                <img src="assets/measurement_image.png" alt="Maßnehmen">
+            </div>
+        </div>
+        
+
+   
+
+
+    <div class="button-container">
+        <button class="fixed-button left" routerLink="">Zurück</button>
+        <button class="fixed-button right" routerLink="/questionaire">Weiter</button>
+      </div>
+    </div>
+  

@@ -1,0 +1,228 @@
+<div class="overall-layout">
+
+    <!-- Step 1 -  Medical Information 1 -->
+    <div *ngIf="currentStep === 1">
+        <h2>Medizinische Informationen - Seite {{currentStep}}</h2>
+        <br><br>
+        <label>Anlass Hilfsmittel:</label>
+        <input type="text" name="occasionAid" ngModel [(ngModel)]="formData.occasionAid">
+        <br>
+        <label>Allergien:</label>
+        <select name="allergies" ngModel [(ngModel)]="formData.allergies">
+            <option value="nickel">Nickel</option>
+            <option value="duftstoffe">künstliche Duftstoffe</option>
+            <option value="parabene">Parabene</option>
+            <option value="konservierungsstoffe">Konservierungsstoffe</option>
+            <option value="naturheilmittel">Naturheilmittel</option>
+            <option value="henna">Henna</option>
+            <option value="latex">Latex</option>
+        </select>
+        <br><br>
+        <label>Dauer der Beschwerden:</label>
+        <div>
+            <div>
+                <input type="checkbox" name="complaintDuration" ngModel
+                    [(ngModel)]="formData.complaintDuration.lessThan1Month"> Weniger als 1 Monat
+            </div>
+            <div>
+                <input type="checkbox" name="complaintDuration" ngModel
+                    [(ngModel)]="formData.complaintDuration.from1To3Months"> 1-3 Monate
+            </div>
+            <div>
+                <input type="checkbox" name="complaintDuration" ngModel
+                    [(ngModel)]="formData.complaintDuration.from3To6Months"> 3-6 Monate
+            </div>
+            <div>
+                <input type="checkbox" name="complaintDuration" ngModel
+                    [(ngModel)]="formData.complaintDuration.moreThan6Months"> Mehr als 6 Monate
+            </div>
+        </div>
+        <br>
+        <label>Produkterfahrung:</label>
+        <div>
+            <div>
+                <input type="checkbox" name="productExperienceYes" [checked]="formData.productExperience === true"
+                    (change)="setProductExperience(true)"> Ja
+            </div>
+            <div>
+                <input type="checkbox" name="productExperienceNo" [checked]="formData.productExperience === false"
+                    (change)="setProductExperience(false)"> Nein
+            </div>
+        </div>
+        <div *ngIf="formData.productExperience">
+            <input type="text" name="manufacturer" ngModel [(ngModel)]="formData.manufacturer"
+                placeholder="Name des Herstellers">
+        </div>
+
+        <div class="button-container">
+            <button class="fixed-button right" type="button" (click)="nextPage()">Weiter</button>
+        </div>
+    </div>
+    <!-- Step 2 -  Medical Information 2 -->
+    <div *ngIf="currentStep === 2">
+        <h2>Medizinische Informationen - Seite {{currentStep}}</h2>
+        <br><br>
+        <label>Blutdruck:</label>
+        <div class="blood-pressure">
+            <div>
+                <input type="text" name="bloodPressureSystolic" ngModel [(ngModel)]="formData.bloodPressureSystolic"
+                    [disabled]="!editMode.systolisch" placeholder="Systolisch">
+                <span class="edit-icon" (click)="toggleEditMode('systolisch')">✎</span>
+            </div>
+            <div>
+                <input type="text" name="bloodPressureDiastolic" ngModel [(ngModel)]="formData.bloodPressureDiastolic"
+                    [disabled]="!editMode.diastolisch" placeholder="Diastolisch">
+                <span class="edit-icon" (click)="toggleEditMode('diastolisch')">✎</span>
+            </div>
+        </div>
+
+        <label>Beschaffenheit der Haut:</label>
+        <select name="skin" ngModel [(ngModel)]="formData.skin">
+            <option value="normal">Normal</option>
+            <option value="trocken">Trocken</option>
+            <option value="empfindlich">Empfindlich</option>
+        </select>
+        <br>
+        <label>Verwenden Sie Hautpflegeprodukte?</label>
+        <div>
+            <div>
+                <input type="checkbox" name="careProducts" ngModel [(ngModel)]="formData.careProducts.cortisone">
+                Cortison
+            </div>
+            <div>
+                <input type="checkbox" name="careProducts" ngModel [(ngModel)]="formData.careProducts.urea"> Urea
+            </div>
+            <div>
+                <input type="checkbox" name="careProducts" ngModel [(ngModel)]="formData.careProducts.moisturizer">
+                Feuchtigkeitscreme
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button class="fixed-button left" type="button" (click)="previousPage()">Zurück</button>
+            <button class="fixed-button right" type="button" (click)="nextPage()">Weiter</button>
+        </div>
+    </div>
+
+    <!-- Step 3 -  Medical Information 3 -->
+    <div *ngIf="currentStep === 3">
+        <h2>Medizinische Informationen - Seite {{currentStep}}</h2>
+        <br><br>
+        <label>Gewebeart:</label>
+        <select name="tissueType" ngModel [(ngModel)]="formData.tissueType">
+            <option value="weich">weich</option>
+            <option value="fest">fest</option>
+        </select>
+        <br>
+        <label>Beschaffenheit des Beines:</label>
+        <div>
+            <div>
+                <input type="checkbox" name="leg" ngModel [(ngModel)]="formData.leg.openWounds"> Offene Wunden
+            </div>
+            <div>
+                <input type="checkbox" name="leg" ngModel [(ngModel)]="formData.leg.bruises"> Blutergüsse
+            </div>
+            <div>
+                <input type="checkbox" name="leg" ngModel [(ngModel)]="formData.leg.varicoseVeins"> Krampfadern
+            </div>
+        </div>
+        <br>
+        <label>Kommentare:</label>
+        <div class="comment-section">
+            <textarea name="comments_medical" ngModel [(ngModel)]="formData.comments.medical"
+                [disabled]="!editMode.comments_medical" placeholder="Zusätzliche medizinische Informationen"
+                rows="4"></textarea>
+            <span class="edit-icon" (click)="toggleEditMode('comments_medical')">✎</span>
+        </div>
+        <div class="button-container">
+            <button class="fixed-button left" type="button" (click)="previousPage()">Zurück</button>
+            <button class="fixed-button right" type="button" routerLink="/questionaire/4">Weiter</button>
+        </div>
+    </div>
+
+    <!--  Step 4 - life and activity  -->
+    <div *ngIf="currentStep === 4">
+        <h2>Alltag und Aktivität</h2>
+        <br><br>
+        <label>Wie aktiv sind Sie im Alltag?</label>
+        <div>
+            <div>
+                <input type="checkbox" name="activity" ngModel [(ngModel)]="formData.activity.very"> Sehr aktiv
+                (regelmäßiger Sport, lange Spaziergänge)
+            </div>
+            <div>
+                <input type="checkbox" name="activity" ngModel [(ngModel)]="formData.activity.moderately"> Mäßig aktiv
+                (gelegentliche Bewegung)
+            </div>
+            <div>
+                <input type="checkbox" name="activity" ngModel [(ngModel)]="formData.activity.hardly"> Wenig aktiv
+                (überwiegend sitzend oder liegend)
+            </div>
+        </div>
+        <br>
+        <label>Kommentare:</label>
+        <div class="comment-section">
+            <textarea name="comments_activity" ngModel [(ngModel)]="formData.comments.activity"
+                [disabled]="!editMode.comments_activity" placeholder="Kommentare zu Alltag und Aktivität"
+                rows="4"></textarea>
+            <span class="edit-icon" (click)="toggleEditMode('comments_activity')">✎</span>
+        </div>
+
+        <div class="button-container">
+            <button class="fixed-button left" type="button" (click)="previousPage()">Zurück</button>
+            <button class="fixed-button right" type="button" routerLink="/questionaire/5">Weiter</button>
+        </div>
+    </div>
+
+    <!-- Step 5 - Special needs -->
+    <div *ngIf="currentStep === 5">
+        <h2>Spezifische Bedürfnisse</h2>
+        <br><br>
+        <label>Materialwünsche</label>
+        <select name="materialPreferences" ngModel [(ngModel)]="formData.materialPreferences">
+            <option value="baumwolle">Baumwolle</option>
+            <option value="elastan">Elastan</option>
+            <option value="polyamid">Polyamid</option>
+            <option value="silberauflage">Silberauflage</option>
+        </select>
+        <br>
+        <div>
+            <label>Benötigen Sie spezielle An- und Ausziehhilfen?</label>
+            <input type="checkbox" name="produktErfahrungJa" [checked]="formData.productExperience === true"
+                (change)="setProductExperience(true)"> Ja
+        </div>
+        <div>
+            <input type="checkbox" name="produktErfahrungNein" [checked]="formData.productExperience === false"
+                (change)="setProductExperience(false)"> Nein
+        </div>
+    
+    <br>
+    <label>Kommentare:</label>
+    <div class="comment-section">
+        <textarea name="comments.needs" ngModel [(ngModel)]="formData.comments.needs"
+            [disabled]="!editMode.comments_needs" placeholder="Kommentare zu speziellen Bedürfnissen" rows="4"></textarea>
+        <span class="edit-icon" (click)="toggleEditMode('comments_needs')">✎</span>
+    </div>
+
+    <div class="button-container">
+        <button class="fixed-button left" type="button" (click)="previousPage()">Zurück</button>
+        <button class="fixed-button right" type="button" routerLink="/questionaire/6">Weiter</button>
+    </div>
+</div>
+
+
+<!-- Submit: Go to productssuggestions and send questionaire data to DataService -->
+<div *ngIf="currentStep === 6" class="center-container">
+    <h1>Fragebogen<br>jetzt beenden?</h1><br>
+    <button class="fixed-button left" type="button" (click)="previousPage()">Zurück</button>
+    <button class="fixed-button right" type="button" (click)="submitForm()"
+        routerLink="/productsuggestions">Absenden</button>
+</div>
+</div>
+
+
+    <!-- <div class="step-indicator">
+        <span [ngClass]="{'active': currentStep === 1}">1</span>
+        <span [ngClass]="{'active': currentStep === 2}">2</span>
+        <span [ngClass]="{'active': currentStep === 3}">3</span>
+    </div> -->

@@ -1,0 +1,200 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: #ff1493; /* Hotpink */
+  text-align: center;
+  font-size: 40px;
+  margin-top: 40px;
+}
+
+.overall-layout {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.center-container button {
+  margin: 0;
+}
+
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+  height: 600px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+input:focus {
+  border: 2px solid#ff1493;; /* Pink border on focus */
+  outline: none;
+}
+ /*++++++++++++++++++++++ Buttons +++++++++++++++++++++++++++++++++++++++ */
+ button, 
+ .fixed-button { 
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ff1493;
+  background-color: #fff;
+  border: 2px solid #ff1493;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+button:hover {
+  background-color: #ff1493;
+  color: #fff;
+}
+
+.button-container {
+  text-align: center;
+}
+
+/* Stile für die fixierten Buttons */
+.fixed-button {
+  position: fixed;
+  bottom: 60px;
+  margin: 5px;
+
+}
+
+.fixed-button.left {
+  left: 20px;
+}
+
+.fixed-button.right {
+  right: 20px;
+}
+
+.fixed-button.middle {
+  position: 20px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+ /*++++++++++++++++++++++ Kommentarfeld +++++++++++++++++++++++++++++++++++++++ */
+ .comment-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.comment-section textarea {
+  flex: 2;
+  border: 1px solid #ccc; /* Default border */
+  padding: 8px;
+  border-radius: 10px; /* Rounded corners */
+  transition: border-color 0.3s;
+}
+
+.comment-section textarea:focus {
+  border: 2px solid #ff1493; /* Pink border on focus */
+  outline: none;
+}
+
+.edit-icon {
+  cursor: pointer;
+  margin-left: 10px;
+  color: #ff1493; /* Hotpink */
+}
+
+
+.step-indicator {
+  width: 60%;
+  display: flex;
+  position: fixed;
+  bottom: 0.1px;
+margin-left: 250px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.step {
+  text-align: center;
+  cursor: pointer;
+  flex-grow: 1;
+
+}
+
+.step-number {
+  display: inline-block;
+  background-color: white; /* Standardfarbe für die Schritte */
+  color:  #2d4d5f;
+  width: 40px; /* Breite und Höhe der Schritte */
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  font-size: 18px; /* Schriftgröße der Zahlen */
+  font-weight: bold;
+  border: 2px solid #2d4d5f;
+}
+
+.step.active .step-number {
+  background-color: #2d4d5f; /* Dunkelblau für den aktiven Schritt */
+  color: white;
+}
+
+.step.active .step-label {
+  color: #2d4d5f;
+}
+
+/* .step::before, .step::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  height: 2px;
+  background-color: #2d4d5f;
+}
+
+.step::before {
+  left: -50%;
+}
+
+.step::after {
+  right: -50%;
+}
+
+.step:first-child::before {
+  content: none;
+}
+
+.step:last-child::after {
+  content: none;
+} */

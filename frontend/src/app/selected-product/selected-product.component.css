@@ -1,0 +1,76 @@
+
+  
+  .product-details {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+  
+  .product-details img {
+    max-width: 200px;
+    border-radius: 8px;
+  }
+  
+  .product-info {
+    text-align: left;
+  }
+  
+  .product-info p {
+    margin: 10px 0;
+  }
+  
+  .product-info ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .product-info ul li {
+    margin: 5px 0;
+  }
+  
+  .product-actions, .remove-product-actions {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .removeButton{
+    position: fixed;
+    top: 40px;
+    margin: 5px;
+    right: 20px;
+  }
+
+  .product-card {
+    text-align: center;
+    justify-items: center; /* Zentriert die Boxen horizontal */
+    align-items: center; /* Zentriert die Boxen vertikal */
+    margin-top: 10px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .image-container {
+    width: 150px; /* gewünschte Breite */
+    height: 200px; /* gewünschte Höhe */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Skaliert und schneidet das Bild passend */
+  }
+  
+  .product-name {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+ 
+  

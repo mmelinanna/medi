@@ -1,0 +1,30 @@
+
+
+.product-details {
+  max-width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+
+}
+
+
+.product-info {
+  display: flex;
+}
+
+.column1{
+  flex: 1;
+  margin-top: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.column2{
+  flex: 2;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+
+
+

@@ -1,0 +1,30 @@
+<div *ngIf="showStepper()" class="step-indicator">
+  <div class="step" [ngClass]="{'active': currentPage === 'prescription' && (currentStep === 4  || currentStep ===5)}" (click)="goToStep('prescription', 4)">
+    <span class="step-number">1</span><br>
+    <span class="step-label">Rezept</span>
+  </div>
+ 
+  <div class="step" [ngClass]="{'active': currentPage === 'measurements'}" (click)="goToStep('measurements')">
+    <span class="step-number">2</span><br>
+    <span class="step-label">Messen</span>
+  </div>
+  <div class="step" [ngClass]="{'active': currentPage === 'questionaire' && currentStep === 1 || currentStep === 2 || currentStep === 3}" (click)="goToStep('questionaire', 1)">
+    <span class="step-number">3</span><br>
+    <span class="step-label">Medizinische <br>Informationen</span>
+  </div>
+  <div class="step" [ngClass]="{'active': currentPage === 'questionaire' && currentStep === 4}" (click)="goToStep('questionaire', 4)">
+    <span class="step-number">4</span><br>
+    <span class="step-label">Alltag</span>
+  </div>
+  <div class="step" [ngClass]="{'active': currentPage === 'questionaire' && currentStep === 5}" (click)="goToStep('questionaire', 5)">
+    <span class="step-number">5</span><br>
+    <span class="step-label">Bedürfnisse</span>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+
+ 

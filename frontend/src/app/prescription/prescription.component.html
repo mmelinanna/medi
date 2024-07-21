@@ -1,0 +1,106 @@
+
+<div class="overall-layout">
+    <!-- Step 1: Capture Prescription Data -->
+    
+    <div *ngIf="currentStep === 1" class="center-container">
+      <button (click)="nextStep()">Neues Rezept erfassen</button>
+    </div>
+  
+    <!-- Step 2: Scan Prescription Image -->
+    <!-- not fully technical implemented, not part of the project scope -->
+    <div *ngIf="currentStep === 2" class="center-container">
+      <img src="./assets/prescription_upload.png" alt="Prescription Image" />
+      <button class="fixed-button right" (click)="nextStep()">Weiter</button>
+    </div>
+  
+    <!-- Step 3: Verify Prescription -->
+    <div *ngIf="currentStep === 3">
+        <h2>Rezeptprüfung</h2>
+        <br><br>
+        <div class="form-content">
+          <div class="verification-item">
+            <label>Gültig bis:</label>
+            <span>31.08.2024</span>
+            <i class="check-icon"></i>
+          </div>
+          <div class="verification-item">
+            <label>Unterschrift vorhanden?</label>
+            <i class="check-icon"></i>
+          </div>
+          <div class="verification-item">
+            <label>Stempel vorhanden?</label>
+            <i class="cross-icon"></i>
+          </div>
+          <div class="verification-item">
+            <label>Info zur Gesetzliche Rezeptzuzahlung</label>
+            <i class="check-icon"></i>
+          </div>
+          <div class="button-container">
+            <button class="fixed-button left" (click)="previousStep()">Rezept erneut scannen</button>
+            <button class="fixed-button right" (click)="nextStep()">Weiter</button>
+          </div>
+        </div>
+    </div>
+        
+  
+   <!-- Step 4: Capture Personal Data -->
+   <div *ngIf="currentStep === 4">
+    <h2>Rezept: Persönliche Daten</h2>
+    <br><br>
+      <div class="form-row">
+        <div class="form-column">
+          <label>Name: <input type="text" [(ngModel)]="personalData.name" name="name" /></label>
+          <label>Krankenkasse: <input type="text" [(ngModel)]="personalData.insurance" name="insurance"></label>
+          <label>Versichertennummer: <input type="text" [(ngModel)]="personalData.insuranceNumber" name="insuranceNumber" /></label>
+          <label>Hausarzt: <input type="text" [(ngModel)]="personalData.doctor" name="doctor"/></label>
+          <label>Geschlecht:
+            <div class="checkbox-group">
+                <label><input type="checkbox" [(ngModel)]="personalData.gender" [value]="'male'" (change)="updateGender('male')" name="genderMale"> Männlich</label>
+                <label><input type="checkbox" [(ngModel)]="personalData.gender" [value]="'female'"(change)="updateGender('female')" name="genderFemale"> Weiblich</label>
+                <label><input type="checkbox" [(ngModel)]="personalData.gender" [value]="'divers'"(change)="updateGender('divers')" name="genderDivers"> Divers</label>
+              </div>
+          </label>
+          
+        </div>
+        <div class="form-column">
+            <label>Straße: <input type="text" [(ngModel)]="personalData.street" name="street"/></label>
+            <label>Postleitzahl: <input type="text" [(ngModel)]="personalData.postalcode" name="postalcode"/></label>
+            <label>Stadt: <input type="text" [(ngModel)]="personalData.city" name="city"/></label>
+       
+          <label>Geburtsdatum: <input type="date" [(ngModel)]="personalData.dob" name="dob"/></label>
+          <div class="comment-section">
+            <textarea name="comments" ngModel [(ngModel)]="personalData.comments" [disabled]="!editMode.comments" placeholder="Kommentare ..." rows="4"></textarea>
+            <span class="edit-icon" (click)="toggleEditMode('comments')">✎</span>
+          </div>
+        </div>    
+      </div>
+      <button class="fixed-button left"(click)="previousStep()">Zurück</button>
+      <button class="fixed-button right" (click)="nextStep()">Weiter</button>
+    </div>
+      
+
+        <!-- Step 5: Capture Medical Data -->
+  <div *ngIf="currentStep === 5">
+    <h2>Rezept: Medizinische Daten</h2>
+    <br><br>
+      <label>Art: <input type="text" [(ngModel)]="medicalData.type" /></label>
+      <label>Hilfsmittelnummer: <input type="text" [(ngModel)]="medicalData.aidNumber" /></label>
+      <label>Hilfsmittel-Beschreibung: <input type="text" [(ngModel)]="medicalData.aidDescription" /></label>
+      <label>Hilfsmittel-Beschreibung 2: <input type="text" [(ngModel)]="medicalData.aidDescription2" /></label>
+      <label>Diagnose: <input type="text" [(ngModel)]="medicalData.diagnosis" /></label>
+      <div class="button-container">
+        <button class="fixed-button left"(click)="previousStep()">Zurück</button>
+          <!-- Step 5: Go to measurements and send questionaire data to DataService -->
+        <button class="fixed-button right"(click)="submitForm()" routerLink="/measurements">Absenden</button>
+      </div>
+    </div>
+  
+
+   <!-- Stepper anzeigen, wenn die aktuelle Seite 1 bis 5 ist
+   <div *ngIf="currentStep === 1 || currentStep === 2" class="step-indicator">
+    <span>'Stepper'</span>
+   </div> -->
+
+    
+
+  

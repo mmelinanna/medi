@@ -1,0 +1,71 @@
+<h2>Produktvorschläge</h2>
+<br>
+
+<div class="filters">
+  <label>
+    Marke
+    <select [(ngModel)]="filters.brand" name="brand" (change)="applyFilters()">
+      <option value="alle">Alle</option>
+      <option value="Julius Zorn GmbH">Juzo</option>
+      <option value="medi GmbH & Co. KG">medi</option>
+      <option value="Swisslastic AG St. Gallen">Swisslastic</option>
+      <option value="BSN-JOBST GmbH">Jobst</option>
+      <option value="Ofa Bamberg GmbH">Ofa</option>
+      <option value="Bauerfeind AG">Bauerfeind</option>
+      <option value="Kundt GmbH & Co.">Kundt</option>
+      <option value="Sigvaris AG">Sigvaris</option>
+      <option value="Heinz Schiebler - Norddeutsche Gummistrumpffabrik GmbH & Co. KG">Heinz Schiebler</option>
+    </select>
+  </label>
+  <label>
+    Stoff
+    <select [(ngModel)]="filters.material" name="material" (change)="applyFilters()">
+      <option value="alle">Alle</option>
+      <option value="Baumwolle">Baumwolle</option>
+      <option value="Elastan">Elastan</option>
+      <option value="Polyamid">Polyamid</option>
+      <option value="Silberauflage">Silberauflage</option>
+    </select>
+  </label>
+  <!-- Only medi colors at the moment -->
+  <label>
+    Farbe
+    <select [(ngModel)]="filters.color" name="color" (change)="applyFilters()">
+      <option value="alle">Alle</option>
+      <option value="Weiß">Weiß</option>
+      <option value="Beige">Beige</option>
+      <option value="Caramel">Caramel</option>
+      <option value="Cashmere">Cashmere</option>
+      <option value="Anthrazit">Anthrazit</option>
+      <option value="Marine">Marine</option>
+      <option value="Schwarz">Schwarz</option>
+      <option value="Grau">Grau</option>
+      <option value="medi Magenta">medi Magenta</option>
+      <option value="Sand">Sand</option>
+      <option value="Kastanie">Kastanie</option>
+      <option value="Himbeerrot">Himbeerrot</option>
+      <option value="Salbeigrün">Salbeigrün</option>
+      <option value="Flieder">Flieder</option>
+    </select>
+  </label>
+  <!-- to be implemented -->
+  <label>
+    Premiumprodukt
+    <select [(ngModel)]="filters.premium" name="premium">
+      <option value="kein-premium">Kein Premium</option>
+      <!-- Add more premium options here -->
+    </select>
+  </label>
+</div>
+<div class="products">
+  <div class="product" *ngFor="let product of currentProducts" (click)="viewProductDetails(product)">
+      <app-product-card [product]="product"></app-product-card>
+  </div>
+</div>
+
+<div class="navigation">
+  <button class="arrow-button left" (click)="previousPage()" [disabled]="currentPage === 1">←</button>
+  <div class="page-indicator">{{currentPage}} von {{totalPages}}</div>
+  <button class="arrow-button right" (click)="nextPage()" [disabled]="currentPage === totalPages">→</button>
+
+</div>

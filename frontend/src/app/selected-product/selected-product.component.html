@@ -1,0 +1,48 @@
+
+<div *ngIf="!showRemoveConfirmation; else removeTemplate" class="product-view">
+    <h2>Ausgewähltes Produkt</h2>
+    <button class="removeButton" (click)="showRemoveConfirmation = true">Entfernen</button>
+
+  
+    <div class="product-details">
+        <div class="product-card">
+            <div class="image-container">
+              <img [src]="imagePath" [alt]="productName">
+            </div>
+            <div class="product-name">{{ productName }}</div>
+          </div>
+     
+      <div class="product-info">
+       
+        <p><strong>Farbe:</strong> flieder</p>
+        <p><strong>Länge:</strong> Kniestrumpf</p>
+        <p><strong>Kompressionsklasse:</strong> 3</p>
+        <br>
+        <p><strong>Preis:</strong></p>
+        <ul>
+          <li>Basis: 4,90 €</li>
+          <li>Anziehilfe: 6,00 €</li>
+          <li>Kristallstein: 12,00 €</li>
+          <li>Gesamt: 22,90 €</li>
+        </ul>
+      </div>
+    </div>
+    <div class="product-actions">
+      
+      <button   class="fixed-button middle"(click)="checkStock()">Lagerstand prüfen</button>
+      <button class="fixed-button right" (click)="orderNow()">Jetzt bestellen</button>
+      <button class="fixed-button left"  (click)="goBack()">Zurück</button>
+    </div>
+   
+  </div>
+  
+  <ng-template #removeTemplate>
+    <div class="remove-product-view">
+      <h2>Produkt aus Warenkorb entfernen?</h2>
+      <div class="remove-product-actions">
+        <button (click)="confirmRemove()">Ja</button>
+        <button (click)="showRemoveConfirmation = false">Zurück</button>
+      </div>
+    </div>
+  </ng-template>
+  
