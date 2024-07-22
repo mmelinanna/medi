@@ -38,8 +38,9 @@ cd projektname
 ```
 5.	Abhängigkeiten installieren
 •	Navigiere in das Verzeichnis des Frontend-Projekts und installiere die notwendigen Abhängigkeiten:
-```cd frontend```
+```cd frontend
 npm install
+```
 6.	Backend-Konfiguration 
 •	Navigiere in das Backend-Verzeichnis und installiere die notwendigen Abhängigkeiten:
 ```
@@ -48,10 +49,10 @@ npm install
 ```
 
 7.	Datenbankkonfiguration
-1.	Erstelle eine MySQL-Datenbank. 
+   Erstelle eine MySQL-Datenbank. 
 (Nutze die sql Skripte zur Erstellung der DB und Tabellen, sowie das Einfügen der Produktdaten)
 
-2.	Füge eine .env Datei im backend Verzeichnis hinzu und konfiguriere sie wie folgt:
+   Füge eine .env Datei im backend Verzeichnis hinzu und konfiguriere sie wie folgt:
 ```
 env
 DB_HOST=localhost
