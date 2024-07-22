@@ -41,8 +41,8 @@ Diese Webanwendung soll Sanitätshäuser bei dem Beratungsprozess bei Kompressio
 4. **Repository klonen**
    - Klone das Angular-Projekt-Repository von GitHub:
      ```sh
-     git clone https://github.com/benutzername/projektname.git
-     cd projektname
+     git clone https://github.com/mmelinanna/medi.git
+     cd medi
      ```
 
 5. **Abhängigkeiten installieren**
