@@ -40,7 +40,7 @@ export class DataService {
 
   //Consolidate data
   getAllData(){
-    console.log("All Data", this.prescriptionData, this.questionaireData);
+    console.log("Alle Daten", this.prescriptionData, this.questionaireData);
     return {
       prescriptionData: this.prescriptionData,
       questionaireData: this.questionaireData

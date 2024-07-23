@@ -29,8 +29,8 @@ export class ProductService {
 
   getProductsByCriteria(): Observable<Product[]> {
     const allData = this.dataService.getAllData();
-    console.log(allData)
-    console.log(allData.questionaireData.activity, allData.questionaireData.tissueType, allData.prescriptionData.personalData.aidNumber)
+    //console.log(allData)
+    //console.log(allData.questionaireData.activity, allData.questionaireData.tissueType, allData.prescriptionData.personalData.aidNumber)
     const params = new HttpParams()
      // .set('activity', allData.questionaireData.activity) //Array
       .set('allergies', allData.questionaireData.allergies)

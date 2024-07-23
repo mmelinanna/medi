@@ -18,15 +18,15 @@ const Product = {
   getProductsByCriteria: (criteria, callback) => {
     console.log("criteria", criteria)
     //console.log(criteria.aidNumber, criteria.activity, criteria.legTissues)
-    const query = 'SELECT * FROM products WHERE Gewebeart_des_Beins LIKE ? AND Hilfsmittelnummer LIKE ? AND Beschaffenheit_der_Haut LIKE ?';
+    const query = 'SELECT * FROM products WHERE Alltags_Aktivität LIKE ? AND Allergien LIKE ? AND Gewebeart_des_Beins LIKE ? AND Hilfsmittelnummer LIKE ? AND Beschaffenheit_der_Haut LIKE ? ';
 
     const queryValues = [
-      // `%${criteria.activity || ''}%`,
-      //`%${criteria.allergies || ''}%`,
-      `${criteria.tissueType || ''}`,
-      `${criteria.aidNumber || ''}%`,
+      `%${criteria.activity || ''}%`,
+      `%${criteria.allergies || ''}%`,
+      `%${criteria.tissueType || ''}%`,
+      `%${criteria.aidNumber || ''}%`,
       // `%${criteria.leg || ''}%`,
-      `${criteria.skin || ''}`
+      `${criteria.skin || ''}%`
     ];
 
     db.query(query, queryValues, (err, results) => {

@@ -9,6 +9,7 @@
         <br>
         <label>Allergien:</label>
         <select name="allergies" ngModel [(ngModel)]="formData.allergies">
+            <option value="/">Keine Allergien</option>
             <option value="nickel">Nickel</option>
             <option value="duftstoffe">künstliche Duftstoffe</option>
             <option value="parabene">Parabene</option>
@@ -180,6 +181,7 @@
         <br><br>
         <label>Materialwünsche</label>
         <select name="materialPreferences" ngModel [(ngModel)]="formData.materialPreferences">
+            <option value="/">Keine Materialwünsche</option>
             <option value="baumwolle">Baumwolle</option>
             <option value="elastan">Elastan</option>
             <option value="polyamid">Polyamid</option>
@@ -213,7 +215,7 @@
 
 <!-- Submit: Go to productssuggestions and send questionaire data to DataService -->
 <div *ngIf="currentStep === 6" class="center-container">
-    <h1>Fragebogen<br>jetzt beenden?</h1><br>
+    <h1>Beratungsbogen<br>jetzt beenden?</h1><br>
     <button class="fixed-button left" type="button" (click)="previousPage()">Zurück</button>
     <button class="fixed-button right" type="button" (click)="submitForm()"
         routerLink="/productsuggestions">Absenden</button>

@@ -21,19 +21,19 @@
           <div class="verification-item">
             <label>Gültig bis:</label>
             <span>31.08.2024</span>
-            <i class="check-icon"></i>
+            
           </div>
           <div class="verification-item">
             <label>Unterschrift vorhanden?</label>
-            <i class="check-icon"></i>
+            <mat-icon style="color: green;">check</mat-icon>
           </div>
           <div class="verification-item">
             <label>Stempel vorhanden?</label>
-            <i class="cross-icon"></i>
+            <mat-icon style="color: red;">close</mat-icon>
           </div>
           <div class="verification-item">
             <label>Info zur Gesetzliche Rezeptzuzahlung</label>
-            <i class="check-icon"></i>
+            <mat-icon style="color: green;">check</mat-icon>
           </div>
           <div class="button-container">
             <button class="fixed-button left" (click)="previousStep()">Rezept erneut scannen</button>
@@ -56,8 +56,8 @@
           <label>Geschlecht:
             <div class="checkbox-group">
                 <label><input type="checkbox" [(ngModel)]="personalData.gender" [value]="'male'" (change)="updateGender('male')" name="genderMale"> Männlich</label>
-                <label><input type="checkbox" [(ngModel)]="personalData.gender" [value]="'female'"(change)="updateGender('female')" name="genderFemale"> Weiblich</label>
-                <label><input type="checkbox" [(ngModel)]="personalData.gender" [value]="'divers'"(change)="updateGender('divers')" name="genderDivers"> Divers</label>
+                <label><input type="checkbox" [value]="'female'"(change)="updateGender('female')" name="genderFemale"> Weiblich</label>
+                <label><input type="checkbox" [value]="'divers'"(change)="updateGender('divers')" name="genderDivers"> Divers</label>
               </div>
           </label>
           

@@ -68,17 +68,18 @@ export class QuestionaireComponent implements OnInit {
     comments_needs: false,
   };
 
+  // page navigation 
   checkCurrentStep() {
     const urlSegments = this.activatedRoute.snapshot.url;
     this.currentStep = urlSegments.length > 0 ? parseInt(urlSegments[urlSegments.length - 1].path, 10) : undefined;
   }
-
+  // page navigation 
   nextPage(): void {
     if (this.currentStep !== undefined && this.currentStep < 3) {
       this.router.navigate([`/questionaire/${this.currentStep + 1}`]);
     }
   }
-
+  // page navigation 
   previousPage(): void {
     if (this.currentStep !== undefined && this.currentStep > 1) {
       this.router.navigate([`/questionaire/${this.currentStep - 1}`]);
@@ -101,12 +102,14 @@ export class QuestionaireComponent implements OnInit {
     }
   }
 
+  // Enable edit mode of different fields
   toggleEditMode(field: keyof typeof this.editMode) {
     this.editMode[field] = !this.editMode[field];
   }
 
+  // Send data to data service
   submitForm() {
-    console.log('Formulardaten:', this.formData);
+    console.log('Daten aus dem Beratungsbogen:', this.formData);
     // Hier können Sie die Formulardaten an einen Server senden oder anderweitig verarbeiten
     this.dataService.setQuestionaireData(this.formData);
   }

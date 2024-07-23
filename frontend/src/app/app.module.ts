@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
@@ -23,7 +24,6 @@ import { ProductSuggestionsComponent } from './product-suggestions/product-sugge
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './product.service';
 import { QuestionaireComponent } from './questionaire/questionaire.component';
-import { StepperComponent } from './stepper/stepper.component';
 import { PrescriptionComponent } from './prescription/prescription.component';
 import { MeasurementsComponent } from './measurements/measurements.component';
 import { SelectedProductComponent } from './selected-product/selected-product.component';
@@ -47,7 +47,7 @@ import { SelectedProductComponent } from './selected-product/selected-product.co
     MatButtonModule,
     MatInputModule,
     MatIconModule, 
-    FormsModule
+    FormsModule, 
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

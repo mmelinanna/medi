@@ -50,6 +50,7 @@ export class PrescriptionComponent implements OnInit {
     diagnosis: 'Varikosis primär'
   };
 
+  // Manage navigation
   checkCurrentStep() {
     this.route.paramMap.subscribe(params => {
       this.currentStep = parseInt(params.get('step')!, 10);
@@ -81,7 +82,7 @@ export class PrescriptionComponent implements OnInit {
 
   // Send data to DataService
   submitForm() {
-    console.log('Form data:', {
+    console.log('Daten aus dem Rezept:', {
       personalData: this.personalData,
       medicalData: this.medicalData
     });

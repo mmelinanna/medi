@@ -11,11 +11,13 @@
       <app-product-card [product]="product"></app-product-card>
       </div>
       <br>
-      <br>
-      <label>Eigenanteil: 4,60€</label>
-      <label>Länge: {{product.Art}}</label>
-      <label>Kompressionsklasse: {{product.Kompressionsklasse}}</label>
-      <label>Farbe:
+     
+      <label style="color: #2d4d5f;">Details</label>
+      <span style="font-weight: bold;">Eigenanteil:</span> 4,60€<br>
+      <span style="font-weight: bold;">Länge:</span> {{product.Art}}<br>
+      <span style="font-weight: bold;">Kompressionsklasse:</span> {{product.Kompressionsklasse}}
+      <br><br>
+      <label style="color: #2d4d5f;">Farbe
         <select [(ngModel)]="product.Farbe">
           <option
             *ngFor="let color of ['Weiß', 'Beige', 'Caramel', 'Cashmere', 'Anthrazit', 'Marine', 'Schwarz', 'Grau', 'medi Magenta', 'Sand', 'Kastanie', 'Himbeerrot', 'Salbeigrün', 'Flieder']"
@@ -25,13 +27,15 @@
     </div>
 
     <div class="column2">
-
+      <br>
+      <br>
       <div class="Productinformation">
+        <label style="color: #2d4d5f;">Produktinformationen</label>
         <div>{{product.Produktinformation}}</div>
       </div>
       <br>
       <br>
-
+      <label style="color: #2d4d5f;">Zusätze</label>
       <label>Pflegeschaum
         <input type="checkbox" />
       </label>
@@ -40,7 +44,7 @@
       </label>
       <br>
       <br>
-      <label>Modifikation
+      <label style="color: #2d4d5f;">Modifikation
         <select>
           <option *ngFor="let modification of ['Keine', 'Modifikation 1', 'Modifikation 2']" [value]="modification">
             {{modification}}</option>

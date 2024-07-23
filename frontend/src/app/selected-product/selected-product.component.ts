@@ -17,27 +17,29 @@ export class SelectedProductComponent implements OnInit {
   ngOnInit(){  this.route.queryParams.subscribe(params => {
     this.productName = params['name'];
     this.imagePath = params['imagePath'];
-    console.log('Received product:', { name: this.productName, imagePath: this.imagePath });
+    //console.log('Received product:', { name: this.productName, imagePath: this.imagePath });
   });}
 
   removeProduct() {
+    // Display the remove confirmation prompt
     this.showRemoveConfirmation = true;
   }
-
+  
   confirmRemove() {
-    // Logik zum Bestätigen des Entfernens
+    // Logic to confirm the removal of the product
     this.showRemoveConfirmation = false;
-    // Weitere Logik, z.B. Entfernen des Produkts aus dem Warenkorb
+    // Additional logic, e.g., removing the product from the cart
   }
-
+  
   checkStock() {
-    // Logik zum Prüfen des Lagerstands
+    // TBD:Logic to check the stock availability of the product
   }
-
+  
   orderNow() {
-    // Logik zum Bestellen des Produkts
+    // TBD: Logic to place an order for the product
   }
-
+  
+  //page navigation
   goBack() {
     this.router.navigate(['/previous-page']);
   }

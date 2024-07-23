@@ -25,19 +25,10 @@ export class ProductSuggestionsComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit() {
-    //this.loadProducts();
-    // const hilfsmittelnummer = '17.06.01.0001';
-    // const type = 'AD';
-
-    
-    // this.productService.getProductsByHilfsmittelnummer(hilfsmittelnummer)
-    //   .subscribe(data => {
-    //     console.log(data);
-    //     this.filteredProducts = this.products;
-    //   });
     this.sendData();
   }
 
+  // get all products
   loadProducts() {
     this.productService.getProducts().subscribe(
       data => {
@@ -50,6 +41,7 @@ export class ProductSuggestionsComponent implements OnInit {
     );
   }
 
+  // get products based on prescription and questionaire
   sendData() {
     this.productService.getProductsByCriteria().subscribe(
       data => {

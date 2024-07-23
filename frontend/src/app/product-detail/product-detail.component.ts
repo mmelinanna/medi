@@ -34,7 +34,7 @@ export class ProductDetailComponent implements OnInit {
             } else {
               this.product = data;
             }
-            console.log('Product selected:', this.product); // Überprüfen Sie hier die Struktur der Daten
+            console.log('Product selected:', this.product); 
 
             this.isLoading = false; // Data loaded, set loading to false
           },
@@ -76,7 +76,7 @@ export class ProductDetailComponent implements OnInit {
 
   selectProduct(): void {
     if (this.product) {
-      console.log('Product selected:', this.product);
+      //console.log('Product selected:', this.product);
       this.router.navigate(['/cart'], { queryParams: { name: this.product.Name, imagePath: this.findImagePath(this.product.Name) } });
     }
     // TBD: Add your logic for selecting the product here
