@@ -114,10 +114,10 @@ Das Frontend-Projekt ist in verschiedene Komponenten unterteilt, die jeweils spe
 
 #### Weitere Komponenten
 
-Die Frontend-Struktur besteht aus verschiedenen Komponenten, die jeweils ihre eigenen CSS-, HTML-, Spezifikations- und TypeScript-Dateien haben. Diese Komponenten sind nach Funktionen und Bereichen der Anwendung organisiert, wie `Measurements`, `Prescription`, `Product Detail`, `Product Suggestions`, `Questionaire` und `Stepper`. Zusätzlich gibt es Services für Datenoperationen, Produktoperationen und Stepper-Operationen.
+Die Frontend-Struktur besteht aus verschiedenen Komponenten, die jeweils ihre eigenen CSS-, HTML-, Spezifikations- und TypeScript-Dateien haben. Diese Komponenten sind nach Funktionen und Bereichen der Anwendung organisiert, wie `Measurements`, `Prescription`, `Product Detail`, `Product Suggestions` und `Questionaire`. Zusätzlich gibt es Services für Datenoperationen und Produktoperationen.
 
 #### Services
 
 - **data.service.ts**: Service-Datei für Datenoperationen.
 - **product.service.ts**: Service-Datei für Produktoperationen.
-- **stepper.service.ts**: Service-Datei für Stepper-Operationen.
+
